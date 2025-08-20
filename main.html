@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4i4 — Mockup</title>
+  <style>
+    :root{
+      --bg: #F8F6F1;           /* ivory/quasi white */
+      --text: #2B1E18;         /* deep brown */
+      --text-contrast: #1C1C1C;
+      --muted: #6e625c;
+      --card: #ffffff;
+      --shadow: 0 8px 30px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background: var(--bg); color: var(--text-contrast);
+    }
+    header{
+      position:sticky; top:0; z-index:10; background:rgba(248,246,241,.8); backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    .container{max-width:1100px; margin:0 auto; padding:16px 24px}
+    nav{display:flex; align-items:center; gap:24px; justify-content:space-between}
+    .nav-links{display:flex; gap:20px}
+    .nav-links a{color:#3b3b3b; text-decoration:none; font-weight:600}
+    .nav-links a:hover{opacity:.7}
+
+    .logo-img{height:40px}
+    .hero{padding:96px 24px 72px}
+    .stack{max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:28px}
+    .kicker{color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.14em; font-size:12px}
+    h1{margin:0; font-size:clamp(40px, 8vw, 72px); line-height:1.05; color:#1f1f1f}
+    .lead{font-size:clamp(16px, 2.2vw, 20px); color:#4a4a4a}
+
+    .cta-row{display:flex; gap:14px; flex-wrap:wrap}
+    .btn{appearance:none; border:0; border-radius:14px; padding:14px 18px; font-weight:700; cursor:pointer}
+    .btn.primary{background:#1f1f1f; color:#fff; box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent; color:#1f1f1f; border:1px solid rgba(0,0,0,.1)}
+    .btn:hover{transform:translateY(-1px)}
+
+    .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:18px; margin-top:28px}
+    .card{background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:20px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px 0}
+    .foot{padding:40px 24px; color:#6a6a6a; font-size:14px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <svg class="logo-img" viewBox="0 0 300 120" aria-label="4i4 logo" role="img" preserveAspectRatio="xMidYMid meet" style="height:40px">
+  <defs>
+    <linearGradient id="fadeSmall" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#2B1E18" />
+      <stop offset="85%" stop-color="#2B1E18" />
+      <stop offset="100%" stop-color="#2B1E18" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central"
+        font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial"
+        font-weight="800" font-size="88" fill="url(#fadeSmall)">4i4</text>
+</svg>
+        <div class="nav-links">
+          <a href="#team">Team</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="stack">
+        <span class="kicker">About Us</span>
+        <svg viewBox="0 0 600 200" aria-label="4i4 logo" role="img" preserveAspectRatio="xMidYMid meet" style="height:120px; max-width:100%">
+  <defs>
+    <linearGradient id="fadeLarge" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#2B1E18" />
+      <stop offset="85%" stop-color="#2B1E18" />
+      <stop offset="100%" stop-color="#2B1E18" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central"
+        font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial"
+        font-weight="800" font-size="150" fill="url(#fadeLarge)">4i4</text>
+</svg>
+        <h1>Integrity. Commitment. Execution.</h1>
+        <p class=\"lead\">We are an investment firm specializing in acquiring small businesses in Southern California. We have an established presence in the area and we are looking for new exciting opportunities.</p>
+        <div class="cta-row">
+          <button class="btn primary">Get Started</button>
+          <button class="btn ghost">Learn More</button>
+        </div>
+        <div class="cards">
+          <article class="card"><h3>Colors</h3><p>Background: <b>#F8F6F1</b><br>Text: <b>#2B1E18</b></p></article>
+          <article class="card"><h3>Use</h3><p>Headers, hero marks, signage, social avatars. Works on web and print.</p></article>
+          <article class="card"><h3>Accessibility</h3><p>High contrast against the ivory background with fade confined to the last ~15% for legibility.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">© <span id="year"></span> 4i4. All rights reserved.</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
