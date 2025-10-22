@@ -6,7 +6,7 @@
   <title>4i4 — Integrity. Commitment. Execution.</title>
   <style>
     :root{
-      --bg: #F8F6F1;
+      --bg: #F4EFE7;
       --text: #1f1f1f;
       --muted: #6e625c;
       --shadow: 0 8px 30px rgba(0,0,0,.06);
@@ -51,14 +51,63 @@
     .section{padding:48px 24px}
     .section h2{margin:0 0 12px}
 
-    /* Team grid */
-    .team{max-width:1100px; margin:0 auto}
-    .team-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:22px; margin-top:18px}
-    .member{background:rgba(255,255,255,.5); border:var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow)}
-    .member img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:12px; background:#e9e6e0}
-    .member h3{margin:10px 0 2px}
-    .member .role{color:#6a6a6a; font-weight:600; font-size:14px}
-    .member p{margin:8px 0 0; color:#4a4a4a; font-size:14px}
+   /* Team grid width */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(420px,1fr));
+  gap:22px;
+  margin-top:18px;
+}
+
+/* VISUALS come from .card (same as Contact/HQ) */
+
+/* Layout only */
+.member{
+  display:grid;
+  grid-template-columns: 112px 1fr;  /* photo | text */
+  grid-auto-rows: min-content;
+  column-gap:18px;
+  row-gap:8px;
+  padding:18px;                      /* same inner padding as .card sections */
+}
+
+/* Fixed, tidy headshots */
+.member img{
+  grid-column:1;
+  grid-row:1 / span 4;
+  width:112px; height:112px;
+  border-radius:12px;
+  object-fit:cover;
+  background:#e9e6e0;
+}
+
+/* Text stack on the right */
+.member h3{ grid-column:2; margin:0 }
+.member .role{ grid-column:2; margin:0; color:#6a6a6a; font-weight:600; font-size:14px }
+.member p:nth-of-type(1){ grid-column:2; margin:4px 0 0; color:#4a4a4a; font-size:14px; line-height:1.5; max-width:60ch }
+.member p:nth-of-type(2){ grid-column:2; margin:6px 0 0; font-size:14px }
+.member p:nth-of-type(2) a{ text-decoration:none; font-weight:600 }
+.member p:nth-of-type(2) a:hover{ text-decoration:underline }
+.member p:nth-of-type(2) a + a::before{ content:"·"; margin:0 8px; color:#9b9b9b }
+
+/* Mobile: keep two columns, then stack at very tiny widths */
+@media (max-width:520px){
+  .member{
+    grid-template-columns:84px 1fr;
+    column-gap:14px; row-gap:6px; padding:12px;
+  }
+  .member img{ width:84px; height:84px; border-radius:10px; grid-row:1 / span 4 }
+  .member h3{ font-size:18px }
+  .member .role{ font-size:13px }
+  .member p{ font-size:13px; line-height:1.4 }
+}
+@media (max-width:360px){
+  .member{ grid-template-columns:1fr }
+  .member img{ grid-row:auto; grid-column:1; justify-self:start; margin-bottom:6px }
+}
+
+
+
 
     /* Contact / HQ */
     .contact{max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.2fr .8fr; gap:24px}
@@ -75,7 +124,7 @@
     <div class="container">
       <nav>
         <!-- Replace 4i4logo1.png with a TRANSPARENT PNG/SVG asset if you have it -->
-        <img src="4i4logo1.png" alt="4i4 logo" class="logo-img">
+        <img src="4i4logosinfondo2.png" alt="4i4 logo" class="logo-img">
         <div class="nav-links">
           <a href="#team">Team</a>
           <a href="#portfolio">Portfolio</a>
@@ -91,9 +140,9 @@
       <div class="stack">
         <span class="kicker">About Us</span>
         <!-- If you prefer a wordmark here, swap this for an <h1> only -->
-        <img src="4i4logo1.png" alt="4i4 logo large" style="height:120px; max-width:100%">
+        <img src="4i4logosinfondo2.png" alt="4i4 logo large" style="height:200px; max-width:100%">
         <h1>Integrity. Commitment. Execution.</h1>
-        <p class="lead">We are an investment firm specializing in acquiring small businesses in Southern California. We have an established presence in the area and we are looking for new exciting opportunities.</p>
+        <p class="lead">4i4 is an investment firm specializing in acquiring small businesses in Southern California. We have an established presence in the area and are seeking new, exciting opportunities.</p>
         <div class="cta-row">
           <a class="btn primary" href="#contact">Contact Us</a>
           <a class="btn ghost" href="#team">Learn More</a>
@@ -103,7 +152,7 @@
 
     <!-- TEAM (edit members below) -->
     <section id="team" class="section">
-      <div class="team">
+      <div class="container">
         <h2>Team</h2>
         <p class="lead">Operators and investors focused on the lower middle market.</p>
         <div class="team-grid">
@@ -111,28 +160,20 @@
             Duplicate a .member block per person. Replace the img src, name, role, and bio.
             Store headshots in /img and reference them, e.g., src="img/andres.jpg"
           -->
-          <article class="member">
-            <img src="img/member-1.jpg" alt="Full name headshot">
-            <h3>Full Name</h3>
+          <article class="member card">
+            <img src="Salvadorfoto.jpeg" alt="Salvador Gomez">
+            <h3>Salvador Gomez</h3>
             <div class="role">Managing Partner</div>
             <p>Short bio line: sector focus, track record, or relevant prior roles.</p>
-            <p><a href="mailto:name@4i4.com">name@4i4.com</a> · <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+            <p><a href="mailto:name@4i4.com">name@4i4.com</a> · <a href="https://www.linkedin.com/in/salvador-gomez-458509a/" target="_blank" rel="noreferrer">LinkedIn</a></p>
           </article>
 
-          <article class="member">
-            <img src="img/member-2.jpg" alt="Full name headshot">
-            <h3>Full Name</h3>
-            <div class="role">Principal</div>
-            <p>Short bio line: sourcing, diligence, or operating expertise.</p>
-            <p><a href="mailto:name@4i4.com">name@4i4.com</a> · <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></p>
-          </article>
-
-          <article class="member">
-            <img src="img/member-3.jpg" alt="Full name headshot">
-            <h3>Full Name</h3>
+          <article class="member card">
+            <img src="DAYVfoto.jpeg" alt="Daniel Yarte">
+            <h3>Daniel Yarte</h3>
             <div class="role">Associate</div>
-            <p>Short bio line: research, modeling, or portfolio support.</p>
-            <p><a href="mailto:name@4i4.com">name@4i4.com</a> · <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+            <p>Short bio line: research, modeling, portfolio support, or relevant prior roles.</p>
+            <p><a href="mailto:daniel@4i4.com">daniel@4i4.com</a> · <a href="www.linkedin.com/in/danielyarte" target="_blank" rel="noreferrer">LinkedIn</a></p>
           </article>
         </div>
       </div>
@@ -163,11 +204,11 @@
           <h2>Headquarters</h2>
           <p>
             <!-- Replace with real HQ address -->
-            1234 Example Ave, Suite 500<br>
-            Los Angeles, CA 90000
+            17011 Beach Blvd, Suite 900<br>
+            Huntington Beach, CA 92647
           </p>
           <p><strong>Hours:</strong> Mon–Fri, 9:00–6:00 PT</p>
-          <p><a href="https://maps.google.com" target="_blank" rel="noreferrer">Open in Maps</a></p>
+          <p><a href="https://www.google.com.mx/maps/place/Huntington+Beach,+CA+92647,+USA/@33.7151469,-117.9907431,18z/data=!3m1!4b1!4m6!3m5!1s0x80dd26f40928243f:0xadc8ecb54985d24d!8m2!3d33.7151469!4d-117.9894556!16s%2Fg%2F11h_4l364h?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer">Open in Maps</a></p>
         </div>
       </div>
     </section>
