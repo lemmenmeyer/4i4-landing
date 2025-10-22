@@ -106,6 +106,104 @@
   .member img{ grid-row:auto; grid-column:1; justify-self:start; margin-bottom:6px }
 }
 
+/* Portfolio grid — same structure as team */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 22px;
+  margin-top: 18px;
+}
+
+/* Portfolio card layout (like team) */
+.portfolio {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  grid-auto-rows: min-content;
+  column-gap: 18px;
+  row-gap: 8px;
+  padding: 18px;
+  align-items: center;
+}
+
+/* Logo size */
+.portfolio img {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Text stack */
+.portfolio h3 {
+  grid-column: 2;
+  margin: 0;
+  font-size: 20px;
+}
+.portfolio .tagline {
+  grid-column: 2;
+  margin: 2px 0 6px;
+  color: #6a6a6a;
+  font-weight: 600;
+  font-size: 14px;
+}
+.portfolio .bio {
+  grid-column: 2;
+  margin: 4px 0 0;
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 60ch;
+}
+.portfolio .links {
+  grid-column: 2;
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+.portfolio .links a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.portfolio .links a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile behavior — same as team */
+@media (max-width: 520px) {
+  .portfolio {
+    grid-template-columns: 84px 1fr;
+    column-gap: 14px;
+    row-gap: 6px;
+    padding: 12px;
+  }
+  .portfolio img {
+    width: 84px;
+    height: 84px;
+    border-radius: 10px;
+  }
+  .portfolio h3 {
+    font-size: 18px;
+  }
+  .portfolio .tagline,
+  .portfolio .bio,
+  .portfolio .links {
+    font-size: 13px;
+  }
+}
+@media (max-width: 360px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+  }
+  .portfolio img {
+    grid-row: auto;
+    grid-column: 1;
+    justify-self: start;
+    margin-bottom: 6px;
+  }
+}
 
 
 
@@ -179,13 +277,27 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO placeholder -->
-    <section id="portfolio" class="section">
-      <div class="container">
-        <h2>Portfolio</h2>
-        <p>Coming soon.</p>
-      </div>
-    </section>
+<section id="portfolio" class="section">
+  <div class="container">
+    <h2>Portfolio</h2>
+    <p class="lead">Companies we’ve partnered with.</p>
+
+    <div class="portfolio-grid">
+      <article class="portfolio card">
+        <img src="zinchlogo.jpeg" alt="Zinch logo">
+        <div>
+          </p>
+          <h3>Zinch</h3>
+          <div class="tagline">Alternative lender</div>
+          <p class="links">
+            <a href="http://www.zinchfin.com" target="_blank" rel="noreferrer">Visit Website</a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT & HEADQUARTERS -->
     <section id="contact" class="section">
